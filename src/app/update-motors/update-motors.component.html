@@ -1,0 +1,40 @@
+<div class="container">
+    <div>
+    <h2>Modify :</h2>
+    </div>
+    <form >
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >ID Motor</label>
+    <input readonly type="text" [(ngModel)]="currentMotors.idMotors" name="idMotors" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+    <label >Name</label>
+    <input type="text"[(ngModel)]= "currentMotors.nomMotors"
+    name="nomMotors" class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >Price</label>
+    <input type="number" [(ngModel)]= "currentMotors.prixMotors"
+    name="prixMotors" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label >Date </label>
+<input type="date" [ngModel]="currentMotors.dateCreation | date: 'yyyy-MM-dd'"
+(ngModelChange)=" currentMotors.dateCreation= $event"
+ name="dateCreation" class="form-control">
+</div>
+<div class="col-sm-4 col-md-4 col-lg-4">
+    <label>Types :</label>
+    <select class="form-control form-control-lg" id="idTyp" name="idTyp"
+    [(ngModel)]="updatedTypId">
+    <option *ngFor="let typ of types" [value]="typ.idTyp" >
+    {{typ.nameTyp}}
+    </option>
+    </select>
+</div>
+<div class="mt-2">
+<button type="submit" (click)="updateMotors()" class="btn btn-success">Modify</button>
+</div>
+</form>
+
+</div>

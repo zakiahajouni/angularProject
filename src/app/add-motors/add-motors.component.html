@@ -1,0 +1,34 @@
+<div class="container">
+    <div>
+        <h2>Add a motor :</h2>
+    </div>
+    <form>
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID Motor</label>
+            <input type="text" [(ngModel)]="newMotors.idMotors" name="idProduit" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Name</label>
+            <input type="text" [(ngModel)]="newMotors.nomMotors" name="nomMotors" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Price</label>
+            <input type="number" [(ngModel)]="newMotors.prixMotors" name="prixMotors" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date</label>
+            <input type="date" [(ngModel)]="newMotors.dateCreation" name="dateCreation" class="form-control">
+        </div>
+       <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Types</label>
+        <select class="form-control form-control-lg" id="idTyp" name="idTyp" [(ngModel)]="newIdTyp">
+            <option *ngFor="let typ of types" [value]="typ.idTyp">
+                {{typ.nameTyp}}
+            </option>
+        </select>
+</div>
+<div class="mt-2">
+    <button type="submit" (click)="addMotors()" class="btn btn-success">Add</button>
+</div>
+</form>
+</div>

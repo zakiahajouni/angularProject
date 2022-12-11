@@ -1,0 +1,17 @@
+<form>
+    <div [hidden]="ajout">
+    <label>ID Type</label>
+    <input readonly type="text" [(ngModel)]="types.idTyp" name="idType" class="form-control w-25">
+    </div>
+    <div>
+    <label>Type Name</label>
+    <input type="text" [(ngModel)]="types.nameTyp" name="nameType" class="form-control" placeholder="Enter type name..">
+    </div>
+    <div class="mt-2">
+        <button type="submit" [disabled]="!types.nameTyp" class="btn btn-success" *ngIf="ajout"
+        (click)="saveType()">Add</button>
+        <button type="submit" [disabled]="!types.nameTyp" class="btn btn-success" *ngIf="ajout==false"
+        (click)="saveType()">Modify</button>
+      </div>
+    </form>
+    

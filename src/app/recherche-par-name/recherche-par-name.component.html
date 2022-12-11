@@ -1,0 +1,47 @@
+<form class="form-inline">
+  <div class="form-group mx-sm-3 mb-2 mt-2">
+    <label>Motor name </label>
+    <input
+      class="form-control"
+      #searchTerm
+      (keyup)="onKeyUp(searchTerm.value)"
+    />
+  </div>
+</form>
+
+<div class="card-body">
+  <table class="table table-striped">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Date</th>
+      <th>Types</th>
+    </tr>
+    <tbody *ngFor="let motors of motors">
+      <tr>
+        <td>{{ motors.idMotors }}</td>
+        <td>{{ motors.nomMotors }}</td>
+        <td>{{ motors.prixMotors }}</td>
+        <td>{{ motors.dateCreation | date : "dd/MM/yyyy" }}</td>
+        <td>{{ motors.type?.nameTyp }}</td>
+        <td>
+          <a
+            *ngIf="authservice.isAdmin()"
+            class="btn btn-danger"
+            (click)="supprimerMotors()"
+            >Delete</a
+          >
+        </td>
+        <td>
+          <a
+            *ngIf="authservice.isAdmin()"
+            class="btn btn-success"
+            [routerLink]="['/updateMotors', motors.idMotors]"
+            >Edit</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
